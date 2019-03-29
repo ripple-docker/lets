@@ -13,6 +13,8 @@ RUN python3.7 setup.py build_ext --inplace
 RUN cd pp/oppai-ng && ./build
 
 RUN mkdir ~/.config && touch ~/.config/ripple_license_agreed
+# generate config
+RUN python3.7 -u lets.py 
 
 EXPOSE 5002
 
