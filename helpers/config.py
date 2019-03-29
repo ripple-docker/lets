@@ -98,14 +98,14 @@ class config:
 
 		# Set keys to config object
 		self.config.add_section("db")
-		self.config.set("db", "host", "localhost")
+		self.config.set("db", "host", "db")
 		self.config.set("db", "username", "root")
-		self.config.set("db", "password", "")
+		self.config.set("db", "password", "changeme")
 		self.config.set("db", "database", "ripple")
 		self.config.set("db", "workers", "16")
 
 		self.config.add_section("redis")
-		self.config.set("redis", "host", "localhost")
+		self.config.set("redis", "host", "redis")
 		self.config.set("redis", "port", "6379")
 		self.config.set("redis", "database", "0")
 		self.config.set("redis", "password", "")
@@ -116,7 +116,7 @@ class config:
 		self.config.set("server", "debug", "False")
 		self.config.set("server", "beatmapcacheexpire", "86400")
 		self.config.set("server", "serverurl", "http://127.0.0.1:5002")
-		self.config.set("server", "banchourl", "http://127.0.0.1:5001")
+		self.config.set("server", "banchourl", "http://peppy:5001")
 		self.config.set("server", "threads", "16")
 		self.config.set("server", "apikey", "changeme")
 		self.config.set("server", "replayspath", ".data/replays")
@@ -138,7 +138,7 @@ class config:
 		self.config.set("osuapi", "apikey", "YOUR_OSU_API_KEY_HERE")
 
 		self.config.add_section("cheesegull")
-		self.config.set("cheesegull", "apiurl", "http://cheesegu.ll/api")
+		self.config.set("cheesegull", "apiurl", "http://cheesegull/api")
 
 		self.config.add_section("discord")
 		self.config.set("discord", "enable", "False")
