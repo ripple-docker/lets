@@ -9,14 +9,18 @@ RUN apt-get update && apt-get install -y python-dev mysql-server default-libmysq
 RUN pip3 install --trusted-host pypi.python.org -r requirements.txt
 
 RUN python3.7 setup.py build_ext --inplace
-
 RUN cd pp/oppai-ng && ./build
 
+# agree to license
 RUN mkdir ~/.config && touch ~/.config/ripple_license_agreed
+
 # generate config
 RUN python3.7 -u lets.py 
 
-EXPOSE 5002
+RUN chmod +x entrypoint.sh
 
-# Run app.py when the container launches
+EXPOSE 5002
+ENV OSUKEY pleasechangeme
+
+ENTRYPOINT [ "./entrypoint.sh" ]
 CMD ["python3.7", "-u", "lets.py"]
