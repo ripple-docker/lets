@@ -16,11 +16,11 @@ RUN mkdir ~/.config && touch ~/.config/ripple_license_agreed
 
 # generate config
 RUN python3.7 -u lets.py 
-
 RUN chmod +x entrypoint.sh
 
 EXPOSE 5002
 ENV OSUKEY pleasechangeme
+ENV MYSQL_ROOT_PASSWORD changeme
 
 ENTRYPOINT [ "./entrypoint.sh" ]
 CMD ["python3.7", "-u", "lets.py"]
