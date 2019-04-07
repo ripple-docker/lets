@@ -14,13 +14,16 @@ RUN cd pp/oppai-ng && ./build
 # agree to license
 RUN mkdir ~/.config && touch ~/.config/ripple_license_agreed
 
-# generate config
-RUN python3.7 -u lets.py 
-RUN chmod +x entrypoint.sh
-
 EXPOSE 5002
-ENV OSUKEY pleasechangeme
-ENV MYSQL_ROOT_PASSWORD changeme
 
-ENTRYPOINT [ "./entrypoint.sh" ]
+# Overwrite config
+ENV DB_HOST db
+ENV DB_USERNAME root
+ENV DB_PASSWORD changeme
+ENV REDIS_HOST redis
+ENV BANCHO_URL http://peppy:5001
+ENV BANCHO_API_KEY changeme
+ENV OSU_API_KEY changeme
+ENV CHEESEGULL_API_URL http://cheesegull/api
+
 CMD ["python3.7", "-u", "lets.py"]
